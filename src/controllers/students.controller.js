@@ -1,5 +1,5 @@
 import Student from '../models/student.model';
-
+import _ from 'lodash';
 const create = (req, res) => {
     const student = Student(req.body);
 
@@ -22,7 +22,7 @@ const list = (req, res) => {
 
 const read = (req, res) => {
     const id = req.params.id;
-    Student.findById(id).exac((err, data) => {
+    Student.findById(id).exec((err, data) => {
         if (err) {
             console.log(err);
         }
@@ -33,7 +33,7 @@ const read = (req, res) => {
 const update = (req, res) => {
     const id = req.params.id;
 
-    Student.findById(id).exac((err, data) => {
+    Student.findById(id).exec((err, data) => {
         if (err || !data) {
             return res.status(400).json('Student not found!');
         }
@@ -54,7 +54,7 @@ const remove = (req, res) => {
 
 const id = req.params.id;
 
-Student.findById(id).exac((err, data) => {
+Student.findById(id).exec((err, data) => {
     if (err || !data) {
         return res.status(400).json('Student not found!');
     }
