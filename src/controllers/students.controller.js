@@ -37,7 +37,7 @@ const update = (req, res) => {
         if (err || !data) {
             return res.status(400).json('Student not found!');
         }
-        data = req.body;
+        
 
         const student = _.extend(data, req.body);
         student.save((err, data) => {
