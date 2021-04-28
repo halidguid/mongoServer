@@ -41,7 +41,7 @@ const update = (req, res) => {
         if (err || !data) {
             return res.status(400).json('Course not found!');
         }
-        data = req.body;
+        
 
         const course = _.extend(data, req.body);
         course.save((err, data) => {
